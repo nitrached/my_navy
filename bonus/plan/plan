@@ -1,0 +1,51 @@
+main
+  |--> si ya -h -> print use
+  |
+  |--> si ya 1 args
+         |
+         |--> placer les bateaux
+         |--> attendre le signal de l'autre joueur
+  |--> si ya 2 args
+            |
+            |--> envoyer le signal au joueur 1
+            |--> placer les bateaux
+            |--> le pjoueur 1 peut jouer = lancement de la partie
+ 
+ 
+    game()
+     |
+     joueur 1  <- (est conecté, J1 peut jouer)  joueur 2
+ 
+     joueur 1 (a joué, envoie la pos) -> joueur 2 (check la pos)
+     joueur 1 <- (touché ou raté + update de map J2) joueur 2
+     UPDATE LA MAP J1 -> J2 peut jouer
+ 
+ 
+    liste de signaux :
+        64 pour les positions/
+        1 pour doit jouer
+        1 pour connecté
+        1 pour gagné
+        1 pour perdu
+        1 pour touché
+        1 pour raté
+ 
+ 
+        USR1 = 0 USR2 = 1
+        x = 1   USR1 USR1 USR1 USR USR2
+ 
+        x = 2   USR1 USR1 USR1 USR2 USR1
+        x = 3   USR1 USR1 USR1 USR2 USR2
+        x = 4   USR1 USR1 USR2 USR1 USR1
+        x = 5   USR1 USR1 USR2 USR1 USR2
+        x = 6   USR1 USR1 USR2 USR2 USR1
+        x = 7   USR1 USR1 USR2 USR2 USR2
+        x = 8   USR1 USR2 USR1 USR1 USR1
+ 
+ 
+                USR2 USR1 USR1 USR1 USR2 = doit jouer = 129
+                USR2 USR1 USR1 USR2 USR1 = touché = 130
+                USR2 USR1 USR1 USR2 USR2 = raté = 131
+                USR2 USR1 USR2 USR1 USR1 = a gagné = 132
+                USR2 USR1 USR2 USR1 USR2 = a perdu = 133
+ 
